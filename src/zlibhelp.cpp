@@ -4,7 +4,7 @@
 #include <cstring>
 #include <zlib.h>
 #include "zlibhelp.hpp"
-static std::string zlibhelp::decompress(const std::string& compressed) {
+std::string zlibhelp::decompress(const std::string& compressed) {
     z_stream strm;
     memset(&strm, 0, sizeof(strm));
     strm.avail_in = compressed.size();
@@ -31,7 +31,7 @@ static std::string zlibhelp::decompress(const std::string& compressed) {
     inflateEnd(&strm);
     return decompressed;
 }
-static std::string zlibhelp::compress(const std::string& data) {
+std::string zlibhelp::compress(const std::string& data) {
     z_stream strm;
     memset(&strm, 0, sizeof(strm));
     if (deflateInit(&strm, Z_DEFAULT_COMPRESSION) != Z_OK) {
