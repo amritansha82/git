@@ -28,6 +28,9 @@ int main(int argc, char *argv[])
     else if (command == "cat-file") {
         return catfile(argc, argv);
     } 
+    else if (command == "hash-object") {
+        return hashobject(argc, argv);
+    }
     else {
         std::cerr << "Unknown command " << command << '\n';
         return EXIT_FAILURE;
