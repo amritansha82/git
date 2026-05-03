@@ -44,8 +44,10 @@ int catfile(int argc, char *argv[]) {
         } catch (const std::runtime_error& e) {
             std::cerr << "Error decompressing object: " << e.what() << '\n';
             return EXIT_FAILURE;
-        }
-        
+        } 
+    }
+    if(flag == "-s"){
+        std::string hash = argv[3];
     }
     return EXIT_FAILURE;
 }
