@@ -2,6 +2,9 @@
 #include <filesystem>
 #include <fstream>
 #include <string>
+#include <cstdlib>
+#include "commands.hpp"
+#include "zlibhelp.hpp"
 
 int main(int argc, char *argv[])
 {
@@ -23,7 +26,7 @@ int main(int argc, char *argv[])
         return init(argc, argv);
     }
     else if (command == "cat-file") {
-        return 
+        return catfile(argc, argv);
     } 
     else {
         std::cerr << "Unknown command " << command << '\n';
