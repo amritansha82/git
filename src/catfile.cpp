@@ -1,4 +1,5 @@
 #include "commands.hpp"
+#include "zlibhelp.hpp"
 #include <iostream>
 #include <filesystem>
 #include <fstream>
