@@ -6,8 +6,7 @@
 
 class zlibhelp {
 public:
-    static std::string decompress(const std::string& compressed) {
-    }
-    static std::string compress(const std::string& data) {
-    }
+    static std::string decompress(const std::string& compressed);
+    static std::string compress(const std::string& data);
+    
 };

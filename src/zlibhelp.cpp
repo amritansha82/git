@@ -59,4 +59,4 @@ public:
         deflateEnd(&strm);
         return compressed;
     }
-}
+};

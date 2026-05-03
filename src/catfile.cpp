@@ -47,4 +47,5 @@ int catfile(int argc, char *argv[]) {
         }
         
     }
+    return EXIT_FAILURE;
 }
