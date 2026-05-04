@@ -37,6 +37,9 @@ int main(int argc, char *argv[])
     else if (command == "write-tree") {
         return writetree(argc, argv);
     }
+    else if (command == "commit-tree") {
+        return committree(argc, argv);
+    }
     else {
         std::cerr << "Unknown command " << command << '\n';
         return EXIT_FAILURE;

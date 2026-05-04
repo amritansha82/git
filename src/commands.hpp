@@ -6,5 +6,4 @@ int catfile(int argc, char *argv[]);
 int hashobject(int argc, char *argv[]);
 int lstree(int argc, char *argv[]);
 int writetree(int argc, char *argv[]);
-
-std::string create_blob(std::ifstream& file);
+int committree(int argc, char *argv[]);
