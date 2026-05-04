@@ -31,6 +31,9 @@ int main(int argc, char *argv[])
     else if (command == "hash-object") {
         return hashobject(argc, argv);
     }
+    else if (command == "ls-tree") {
+        return lstree(argc, argv);
+    }
     else {
         std::cerr << "Unknown command " << command << '\n';
         return EXIT_FAILURE;
