@@ -5,4 +5,5 @@
 #include <string>
 #include <openssl/sha.h>
 
-std::string sha1(std::string filename);
+std::string sha1bin(std::string filename);
+std::string bin2hex(const std::string &bin);
