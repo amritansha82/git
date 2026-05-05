@@ -7,3 +7,4 @@ int hashobject(int argc, char *argv[]);
 int lstree(int argc, char *argv[]);
 int writetree(int argc, char *argv[]);
 int committree(int argc, char *argv[]);
+int clone(int argc, char *argv[]);

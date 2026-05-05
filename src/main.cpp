@@ -40,6 +40,9 @@ int main(int argc, char *argv[])
     else if (command == "commit-tree") {
         return committree(argc, argv);
     }
+    else if (command == "clone") {
+        return clone(argc, argv);
+    }
     else {
         std::cerr << "Unknown command " << command << '\n';
         return EXIT_FAILURE;
