@@ -12,7 +12,7 @@ namespace fs = std::filesystem;
 
 int catfile(int argc, char *argv[]) {
     if (argc < 4) {
-        std::cerr << "Usage: cat-file <flag> <object>\n";
+        std::cerr << "Usage: cat-file -p <object>\n";
         return EXIT_FAILURE;
     }
     std::string flag = argv[2];
@@ -45,9 +45,6 @@ int catfile(int argc, char *argv[]) {
             std::cerr << "Error decompressing object: " << e.what() << '\n';
             return EXIT_FAILURE;
         } 
-    }
-    if(flag == "-s"){
-        std::string hash = argv[3];
     }
     return EXIT_FAILURE;
 }

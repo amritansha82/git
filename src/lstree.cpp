@@ -21,7 +21,7 @@ std::string convert_to_hex(const std::string& bin_str) {
 }
 int lstree(int argc, char *argv[]){
     if(argc < 3) {
-        std::cerr << "Usage: git-cpp ls-tree <flag> <tree-sha>\n";
+        std::cerr << "Usage: git-cpp ls-tree [--name-only|--object-only] <tree-sha>\n";
         return EXIT_FAILURE;
     }
     std::map<std::string, std::string> mode_to_type = {

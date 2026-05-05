@@ -1,59 +1,87 @@
-[![progress-banner](https://backend.codecrafters.io/progress/git/3c50c138-dd12-4cc1-90cf-dd928fe43048)](https://app.codecrafters.io/users/codecrafters-bot?r=2qF)
+# git
 
-This is a starting point for C++ solutions to the
-["Build Your Own Git" Challenge](https://codecrafters.io/challenges/git).
+_A simple git client written in C++._
 
-In this challenge, you'll build a small Git implementation that's capable of
-initializing a repository, creating commits and cloning a public repository.
-Along the way we'll learn about the `.git` directory, Git objects (blobs,
-commits, trees etc.), Git's transfer protocols and more.
+The following commands are supported:
+- `init`: Initialize a new git repository
+- `hash-object`: Create a git blob object
+- `cat-file`: Print the contents of a blob object
+- `write-tree`: Create a git tree object
+- `ls-tree`: List the contents of a tree object
+- `commit-tree`: Create a git commit object
+- `clone`: Clone a remote repository
 
-**Note**: If you're viewing this repo on GitHub, head over to
-[codecrafters.io](https://codecrafters.io) to try the challenge.
+This implementation does not support branching (each commit can only point to a single parent commit), and does not have a dedicated staging area (`write-tree` creates a tree object from the current state of the working directory).
 
-# Passing the first stage
+- Git Reference: https://git-scm.com/docs
 
-The entry point for your Git implementation is in `src/main.cpp`. Study and
-uncomment the relevant code, and push your changes to pass the first stage:
+## Building from source
 
-```sh
-git commit -am "pass 1st stage" # any msg
-git push origin master
+Prerequisites:
+- CMake ≥ 3.13
+- C++ compiler with C++23 support (e.g. g++ 11+, clang 14+)
+
+### Dependencies
+
+#### Ubuntu / Debian
+
+```bash
+sudo apt update
+sudo apt install libcurl4-openssl-dev libssl-dev zlib1g-dev
 ```
 
-That's all!
-
-# Stage 2 & beyond
-
-Note: This section is for stages 2 and beyond.
-
-1. Ensure you have `cmake` installed locally
-1. Run `./your_program.sh` to run your Git implementation, which is implemented
-   in `src/main.cpp`.
-1. Commit your changes and run `git push origin master` to submit your solution
-   to CodeCrafters. Test output will be streamed to your terminal.
-
-# Testing locally
-
-The `your_program.sh` script is expected to operate on the `.git` folder inside
-the current working directory. If you're running this inside the root of this
-repository, you might end up accidentally damaging your repository's `.git`
-folder.
-
-We suggest executing `your_program.sh` in a different folder when testing
-locally. For example:
-
-```sh
-mkdir -p /tmp/testing && cd /tmp/testing
-/path/to/your/repo/your_program.sh init
+#### Fedora
+```bash
+sudo dnf install libcurl-devel openssl-devel zlib-devel
 ```
 
-To make this easier to type out, you could add a
-[shell alias](https://shapeshed.com/unix-alias/):
-
-```sh
-alias mygit=/path/to/your/repo/your_program.sh
-
-mkdir -p /tmp/testing && cd /tmp/testing
-mygit init
+#### Arch
+```bash
+sudo pacman -S curl openssl zlib
 ```
+
+### Building
+
+```bash
+cmake -B build -S .
+cmake --build ./build
+```
+
+### Running
+
+- Clone a remote repository
+   
+   ```bash
+   ./build/git clone https://github.com/expressjs/express express
+   ```
+
+- Write a blob object
+
+   ```bash
+   ./build/git hash-object -w <file>
+   ```
+
+- View a blob object
+
+   ```bash
+   ./build/git cat-file -p <blob-sha>
+   ```
+
+- Write the current file tree to a tree object
+
+   ```bash
+   ./build/git write-tree
+   ```
+
+- List the contents of a tree object
+
+   ```bash
+   ./build/git ls-tree [--name-only|--object-only] <tree-sha>
+   ```
+
+- Create a commit object
+
+   ```bash
+   ./build/git commit-tree <tree-sha> -p <parent-commit-sha> -m <message>
+   ```
+
