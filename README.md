@@ -85,3 +85,6 @@ cmake --build ./build
    ./build/git commit-tree <tree-sha> -p <parent-commit-sha> -m <message>
    ```
 
+## License
+
+[MIT](LICENSE)
